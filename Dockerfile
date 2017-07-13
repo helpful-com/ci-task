@@ -1,4 +1,4 @@
-FROM java:latest
+FROM openjdk:8-jdk
 
 MAINTAINER Helpful version: 0.1
 
