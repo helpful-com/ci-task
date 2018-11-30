@@ -7,6 +7,10 @@ RUN mkdir -p /usr/local/bin \
 	&& tar -z -x -v -f /tmp/cf-cli.tgz -C /usr/local/bin \
 	&& rm -f /tmp/cf-cli.tgz
 
+ADD https://s3.amazonaws.com/concourseci/autoscaler-for-pcf-cliplugin-linux64-binary-2.0.40 \
+        /tmp/autoscaler-for-pcf-cliplugin-linux64-binary-2.0.40
+RUN /usr/local/bin/cf install-plugin /tmp/autoscaler-for-pcf-cliplugin-linux64-binary-2.0.40
+
 RUN (curl -fL https://getcli.jfrog.io | sh) \
 	&& mv jfrog /usr/local/bin/
 
